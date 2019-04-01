@@ -17,17 +17,25 @@ function loadRecipies(){
         snapshot.forEach( item=> {
             console.log("Elements data: ", item.data());
             var recipieElementFromDB = item.data();
-            addRecipie(recipieElementFromDB);
+            var recipieIdFromDB = item.id;
+            addRecipie(recipieElementFromDB, recipieIdFromDB);
         })
     
     });
+}
+
+function generateLinkFromID(id){
+    var destinationPage = 'recipie.html';
+    // page = page + '...'
+    destinationPage += '?id='+id;
+    return destinationPage;
 }
 
 function clearContainer(){
     $('#recipie_list_container').empty();
 }
 
-function addRecipie(recipieItem){
+function addRecipie(recipieItem, recipieID){
 
     var $sourceElement = $('#recipie_source_container .recipie_source');
     var $newElement = $sourceElement.clone();
@@ -44,6 +52,11 @@ function addRecipie(recipieItem){
         shortDescription = description.substring(0,300);
     }
     $newElement.find('.card-text').text(shortDescription);
+
+    var link = generateLinkFromID(recipieID);
+    $newElement.find('.image-link').attr('href',link);
+    $newElement.find('h4.card-title a').attr('href',link);
+
 
     var rating = parseInt(recipieItem.rating);
     $newElement.find('.card-footer .text-muted').append(rating);
