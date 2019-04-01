@@ -10,8 +10,9 @@ var db = firebase.firestore();
 
 function loadRecipies(){
     db.collection('recipies').onSnapshot(function(snapshot){
-
         console.log("Datas Snapshot:", snapshot );
+
+        clearContainer();
     
         snapshot.forEach( item=> {
             console.log("Elements data: ", item.data());
@@ -40,7 +41,7 @@ function addRecipie(recipieItem){
     var description = recipieItem.description;
     var shortDescription = '';
     if( description != null && description != undefined ){
-        shortDescription = description.substring(0,100);
+        shortDescription = description.substring(0,300);
     }
     $newElement.find('.card-text').text(shortDescription);
 
