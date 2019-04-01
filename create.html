@@ -1,21 +1,21 @@
+
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 
 <head>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="RecePies, l'app per scrivere e condividere le tue ricette.">
-  <meta name="author" content="Tommy Date">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
   <title>Bare - Start Bootstrap Template</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+  
   <!-- Custom CSS for this page -->
   <link href="css/create.css" rel="stylesheet">
-
 
 </head>
 
@@ -55,66 +55,70 @@
     <div class="row">
       <div class="col-lg-12 text-center">
         <h1 class="mt-5">Crea la tua ricetta</h1>
-        <p class="lead">Completa tutte le informazioni e pubblica subito la tua ricetta!</p>
+        <p class="lead">Completa tutte le informazioni e pubblica subito la tua ricetta.</p>
       </div>
     </div>
 
     <div class="row">
       <div class="col">
-        <form id="recipie" onsubmit="return saveRecipie(event);">
-            <div class="form-group">
-              <label for="exampleInputEmail1">Nome Ricetta</label>
-              <input type="text" class="form-control" id="name" placeholder="Nome Ricetta">
-            </div>
+          <form id='recipie' onsubmit='return saveRecipie(event);'>
 
-            <div class="form-group">
-              <label for="exampleInputEmail1">Numero di Persone</label>
-              <input type="text" class="form-control" id="people" placeholder="Numero di Persone">
-            </div>
+              <div class="form-group">
+                <label for="name">Nome Ricetta</label>
+                <input type="text" class="form-control" id="name" placeholder="Nome Ricetta">
+              </div>
 
-            <div class="form-group">
-              <label for="exampleInputEmail1">Tempo di Preparazione</label>
-              <input type="text" class="form-control" id="preparationTime" placeholder="Tempo di Preparazione">
-            </div>
-            
-            <div class="form-group">
-              <label for="exampleInputEmail1">Tempo di Cottura</label>
-              <input type="text" class="form-control" id="cookingTime" placeholder="Tempo di Cottura">
-            </div>
+              <div class="form-group">
+                <label for="name">Numero di Persone</label>
+                <input type="text" class="form-control" id="people" placeholder="Numero di Persone">
+              </div>
 
-            <div class="form-group">
-              <label for="exampleInputEmail1">Difficoltà</label>
-              <input type="text" class="form-control" id="difficulty" placeholder="Difficoltà">
-            </div>
-            
-            <div class="form-group">
-              <label for="exampleInputEmail1">Costo Stimato</label>
-              <input type="text" class="form-control" id="cost" placeholder="Costo Stimato">
-            </div>    
-                
-            <div class="form-group">
-              <label for="exampleInputEmail1">Procedimento</label>
-              <textarea class="form-control" id="description" placeholder="Scrivi qua lo svolgimento..."></textarea>
-            </div>
+              <div class="form-group">
+                <label for="name">Tempo di preparazione</label>
+                <input type="text" class="form-control" id="preparationTime" placeholder="Tempo di preparazione">
+              </div>
 
-            <button class="btn btn-primary">Invia</button>
-        </form>  
+              <div class="form-group">
+                <label for="name">Tempo di cottura</label>
+                <input type="text" class="form-control" id="cookingTime" placeholder="Tempo di cottura">
+              </div>
+
+
+              <div class="form-group">
+                <label for="name">Difficoltà</label>
+                <input type="text" class="form-control" id="difficulty" placeholder="Difficoltà">
+              </div>
+
+              <div class="form-group">
+                <label for="name">Costo Stimato</label>
+                <input type="text" class="form-control" id="cost" placeholder="Costo stimato">
+              </div>
+
+              <div class="form-group">
+                <label for="name">Procedimento</label>
+                <textarea class="form-control" id="description" placeholder="Scrivi qua il tuo svolgimento..."></textarea>
+              </div>
+
+              <button class="btn btn-primary" >Submit</button>
+          </form>
       </div>
-    </div>  
+    </div>
+
   </div>
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-  <script src="https://www.gstatic.com/firebasejs/5.8.6/firebase.js"></script>
-  <script src="js/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-firestore.js"></script>
 
-
-
-  <script src="js/msodels/recipie.js"></script>
-  <script src="js/controllers/create.js"></script>
+  <script src= js/firebase.js></script>
+  <script src='js/models/recipie.js' ></script>
+  <script src='js/controllers/create.js' ></script>
 
 </body>
+
+
 
 </html>
