@@ -8,17 +8,23 @@
 
 var db = firebase.firestore();
 
-db.collection('recipies').get().then(function(snapshot){
+function loadRecipies(){
+    db.collection('recipies').onSnapshot(function(snapshot){
 
-    console.log("Datas Snapshot:", snapshot );
+        console.log("Datas Snapshot:", snapshot );
+    
+        snapshot.forEach( item=> {
+            console.log("Elements data: ", item.data());
+            var recipieElementFromDB = item.data();
+            addRecipie(recipieElementFromDB);
+        })
+    
+    });
+}
 
-    snapshot.forEach(function(item){
-        console.log("Elements data: ", item.data());
-        var recipieElementFromDB = item.data();
-        addRecipie(recipieElementFromDB);
-    })
-
-});
+function clearContainer(){
+    $('#recipie_list_container').empty();
+}
 
 function addRecipie(recipieItem){
 
@@ -28,7 +34,21 @@ function addRecipie(recipieItem){
     var title = recipieItem.name;
     $newElement.find('h4.card-title a').text(title);
 
+    var difficulty = recipieItem.difficulty;
+    $newElement.find('h5').text('Level: '+difficulty);
+
+    var description = recipieItem.description;
+    var shortDescription = '';
+    if( description != null && description != undefined ){
+        shortDescription = description.substring(0,100);
+    }
+    $newElement.find('.card-text').text(shortDescription);
+
+    var rating = parseInt(recipieItem.rating);
+    $newElement.find('.card-footer .text-muted').append(rating);
+
     $('#recipie_list_container').append($newElement);
 }
 
 
+loadRecipies();
