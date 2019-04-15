@@ -12,5 +12,5 @@ firebase.initializeApp(config);
 
 firebase.firestore().enablePersistence()
   .catch((err) => {
-    console.log('Errore in firestore' + err);
+    console.log('Errore in firestore',err);
   });
