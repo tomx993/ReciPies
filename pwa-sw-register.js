@@ -9,12 +9,12 @@ if ("serviceWorker" in navigator) {
   } else {
     // Register the service worker
     navigator.serviceWorker
-      .register("js/pwa/pwa-sw.js", {
+      .register("pwa-sw.js", {
         scope: "./"
       })
       .then((reg) => {
         console.log("[PWA Builder] Service worker has been registered for scope: " + reg.scope);
-        console.log(register);
+        console.log(reg);
       })
       .catch((error) => {
         console.log("si è verificato un errore del tipo: " + error);

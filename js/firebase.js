@@ -8,3 +8,9 @@ var config = {
   messagingSenderId: "478364802223"
 };
 firebase.initializeApp(config);
+
+
+firebase.firestore().enablePersistence()
+  .catch((err) => {
+    console.log('Errore in firestore' + err);
+  });
