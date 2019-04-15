@@ -16,8 +16,8 @@ if ("serviceWorker" in navigator) {
         console.log("[PWA Builder] Service worker has been registered for scope: " + reg.scope);
         console.log(register);
       })
-      .catch(error => {
-        console.log("si è verificato un errore del tipo: ".error)
+      .catch((error) => {
+        console.log("si è verificato un errore del tipo: " + error);
       });
   }
 }
