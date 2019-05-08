@@ -4,7 +4,7 @@
     - creare un elemento completo HTML da apporre nell pagina
     - completare le informazioni dell'elemento dall'oggetto ricevuto da DB
     - apporlo in pagina
-*/
+*/ 
 
 var db = firebase.firestore();
 

@@ -3,7 +3,7 @@
 var db = firebase.firestore();
 
 function saveRecipie(event){
-    event.preventDefault();
+    event.checkValidity();
 
 
     var currentRecipie = {};
@@ -34,3 +34,11 @@ function saveRecipie(event){
     return false;
 
 }
+
+$('#myModal').on('shown.bs.modal', function () {
+    $('#myInput').trigger('focus')
+});
+
+
+$(".rating").rate();
+
