@@ -44,22 +44,6 @@ function findGetParameter(parameterName) {
     return result;
 }
 
-/*
-function addRecipie(recipie, recipieId){
-
-    var title = recipie.name;
-    console.log(title);
-    $('#titolo').text(title);
-}
-
-
-var recipieRef = db.collection("recipies");
-
-recipieRef.doc("SF").set({
-    name: "ciao" 
-
-});
-*/
 
 function addRecipie(recipie, recipieId){
 
