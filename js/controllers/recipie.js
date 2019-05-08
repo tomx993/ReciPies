@@ -7,17 +7,22 @@
 */
 var db = firebase.firestore();
 
-function loadRecipie(){
-    var recipieId = getIdFromURL()
+function loadRecipie() {
+    var recipieId = getIdFromURL();
     db.collection('recipies')
-        .doc(recipieId)
-        .onSnapshot((doc) => {
-            var recipie = doc.data();
-            console.log(recipie);
-        });
+    .doc(recipieId)
+    .onSnapshot(function(item){
+       var recipie = item.data();
+       var recipieId = findGetParameter('id');
+       console.log(recipieId);
+
+       addRecipie(recipie, recipieId);
+
+    })
+
 }
 
-function getIdFromURL(){
+function getIdFromURL() {
     return findGetParameter('id');
 }
 
@@ -28,14 +33,14 @@ function findGetParameter(parameterName) {
         .substr(1)
         .split("&")
         .forEach(function (item) {
-          tmp = item.split("=");
-          if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+            tmp = item.split("=");
+            if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
         });
 
         const urlParams = new URLSearchParams(window.location.search);
-        const myParam = urlParams.get('myParam')
-
-
+        const myParam = urlParams.get('myParam');
+    
+        
     return result;
 }
 
@@ -55,9 +60,6 @@ recipieRef.doc("SF").set({
 
 });
 */
-
-
-
 
 function addRecipie(recipie, recipieId){
 
@@ -79,25 +81,19 @@ function addRecipie(recipie, recipieId){
     $('#cost').text('Costo: ' + cost);
 
 
-/*
-    var getData = db.collection("recipies").addRecipie();
+    var getData = db.collection("recipies").doc(recipieId);
 
-    getData.get().then(function(addRecipie) {
-        if (addRecipie.exists) {
-            console.log("Document data:", addRecipie.data());
+    getData.get().then(function(doc) {
+        if (doc.exists) {
+            console.log("Document data:", doc.data());
         } else {
             console.log("No such document!");
         }
     }).catch(function(error) {
         console.log("Error getting document:", error);
     });
- 
-*/
 
 }
-
-
-
 
 
 loadRecipie();
